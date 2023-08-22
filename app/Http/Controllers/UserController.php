@@ -87,7 +87,7 @@ class UserController extends Controller
     {
         $role = $user->role;
         if ($role == 'admin') {
-            $new_role = 'user';
+            $new_role = 'acc';
         } else {
             $new_role = 'admin';
         }

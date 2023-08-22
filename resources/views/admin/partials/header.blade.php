@@ -4,7 +4,7 @@
         class="app-header z-[999] ltr:ml-[248px] rtl:mr-[248px] bg-white dark:bg-slate-800 shadow-sm dark:shadow-slate-700">
         <div class="flex justify-between items-center h-full">
             <div class="flex items-center md:space-x-4 space-x-2 xl:space-x-0 rtl:space-x-reverse vertical-box">
-                <a href="index.html" class="mobile-logo xl:hidden inline-block">
+                <a href="{{ route('dashboard') }}" class="mobile-logo xl:hidden inline-block">
                     <img src="{{ asset('backend/images/logo/logo-c.svg') }}" class="black_logo" alt="logo">
                     <img src="{{ asset('backend/images/logo/logo-c-white.svg') }}" class="white_logo" alt="logo">
                 </a>
@@ -22,7 +22,7 @@
             </div>
             <!-- end vertcial -->
             <div class="items-center space-x-4 rtl:space-x-reverse horizental-box">
-                <a href="index.html">
+                <a href="{{ route('dashboard') }}">
                     <span class="xl:inline-block hidden">
                         <img src="{{ asset('backend/images/logo/logo.svg') }}" class="black_logo" alt="logo">
                         <img src="{{ asset('backend/images/logo/logo-white.svg') }}" class="white_logo" alt="logo">
