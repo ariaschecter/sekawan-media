@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->string('car_plat');
+            $table->string('car_name');
             $table->string('car_type');
             $table->string('car_owner');
             $table->integer('car_bbm');
             $table->date('car_service');
-            $table->enum('car_avail', ['ada', 'proses', 'tidak'])->default('ada');
+            $table->enum('car_avail', ['ada', 'proses dipinjam', 'tidak ada'])->default('ada');
             $table->timestamps();
         });
     }
