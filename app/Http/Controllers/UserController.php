@@ -56,7 +56,7 @@ class UserController extends Controller
             'email_verified_at' => now()
         ]);
 
-        return redirect()->route('admin.user.index');
+        return redirect()->route('admin.user.create')->with(['message' => 'Sukses Menambahkan User.', 'color'=> 'bg-success-500']);
     }
 
     /**
@@ -95,7 +95,7 @@ class UserController extends Controller
         $user->update([
             'role' => $new_role
         ]);
-        return redirect()->back();
+        return redirect()->back()->with(['message' => 'Sukses Mengubah Role User ke ' . $new_role . '.', 'color'=> 'bg-success-500']);
     }
 
     /**
@@ -104,7 +104,7 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->back();
+        return redirect()->back()->with(['message' => 'Sukses Mengarsipkan Data User.', 'color'=> 'bg-success-500']);
     }
 
     public function archive() {
@@ -119,6 +119,6 @@ class UserController extends Controller
 
     public function restore($id) {
         User::withTrashed()->where('id', $id)->restore();
-        return redirect()->back();
+        return redirect()->back()->with(['message' => 'Sukses Mengembalikan Data User.', 'color'=> 'bg-success-500']);
     }
 }

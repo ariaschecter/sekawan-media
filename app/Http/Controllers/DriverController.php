@@ -46,7 +46,7 @@ class DriverController extends Controller
 
         Driver::create($validated);
 
-        return redirect()->route('admin.driver.create');
+        return redirect()->route('admin.driver.create')->with(['message' => 'Sukses Menambahkan Driver.', 'color'=> 'bg-success-500']);
     }
 
     /**
@@ -88,7 +88,7 @@ class DriverController extends Controller
 
         $driver->update($validated);
 
-        return redirect()->route('admin.driver.index');
+        return redirect()->route('admin.driver.index')->with(['message' => 'Sukses Mengubah Data Driver.', 'color'=> 'bg-success-500']);
     }
 
     /**
@@ -97,6 +97,6 @@ class DriverController extends Controller
     public function destroy(Driver $driver)
     {
         $driver->delete();
-        return redirect()->back();
+        return redirect()->back()->with(['message' => 'Sukses Menghapus data Driver.', 'color'=> 'bg-success-500']);
     }
 }

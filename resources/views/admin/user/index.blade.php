@@ -9,6 +9,7 @@
                     <h4 class="card-title">{{ $title }}
                     </h4>
                 </header>
+                @include('admin.partials.alert')
                 <div class="card-body px-6 pb-6">
                     <div class="overflow-x-auto -mx-6 dashcode-data-table">
                         <span class=" col-span-8  hidden"></span>

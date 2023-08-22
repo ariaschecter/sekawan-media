@@ -9,6 +9,7 @@
                     <div class="card-title text-slate-900 dark:text-white">{{ $title }}</div>
                 </div>
             </header>
+            @include('admin.partials.alert')
             <div class="card-text h-full ">
                 <form class="space-y-4" method="POST" action="{{ route('admin.user.store') }}">
                     @csrf
