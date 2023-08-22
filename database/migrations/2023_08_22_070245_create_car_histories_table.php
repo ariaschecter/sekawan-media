@@ -16,7 +16,10 @@ return new class extends Migration
             $table->foreignId('car_id');
             $table->foreignId('driver_id');
             $table->foreignId('employee_id');
-            $table->string('car_history_status');
+            $table->date('history_pinjam');
+            $table->date('history_kembali')->nullable();
+            $table->string('history_note');
+            $table->boolean('history_status')->default(0);
             $table->timestamps();
         });
     }

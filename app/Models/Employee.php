@@ -10,4 +10,8 @@ class Employee extends Model
     use HasFactory;
 
     protected $guarded = [''];
+
+    public function history() {
+        return $this->hasMany(CarHistory::class, 'driver_id', 'id');
+    }
 }

@@ -14,12 +14,12 @@
                 <form class="space-y-4" method="POST" action="{{ route('admin.driver.store') }}">
                     @csrf
                     <div class="input-area relative">
-                        <label for="driver_name" class="form-label">Nama Driver</label>
+                        <label for="driver_name" class="form-label">Nama Driver<span class="text-red-500">*</span></label>
                         <input type="text" id="driver_name" name="driver_name" class="form-control" placeholder="Enter Your Driver Name" value="{{ old('driver_name') }}">
                         <x-input-error :messages="$errors->get('driver_name')" class="mt-2" />
                     </div>
                     <div class="input-area relative">
-                        <label for="driver_phone" class="form-label">Phone Driver</label>
+                        <label for="driver_phone" class="form-label">Phone Driver<span class="text-red-500">*</span></label>
                         <input type="text" id="driver_phone" name="driver_phone" class="form-control" placeholder="628xxxxxx" value="{{ old('driver_phone') }}">
                         <x-input-error :messages="$errors->get('driver_phone')" class="mt-2" />
                     </div>

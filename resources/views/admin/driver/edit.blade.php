@@ -14,12 +14,12 @@
                     @csrf
                     @method('PUT')
                     <div class="input-area relative">
-                        <label for="driver_name" class="form-label">Nama Driver</label>
+                        <label for="driver_name" class="form-label">Nama Driver<span class="text-red-500">*</span></label>
                         <input type="text" id="driver_name" name="driver_name" class="form-control" placeholder="Enter Your Driver Name" value="{{ $driver->driver_name }}">
                         <x-input-error :messages="$errors->get('driver_name')" class="mt-2" />
                     </div>
                     <div class="input-area relative">
-                        <label for="driver_phone" class="form-label">Phone Driver</label>
+                        <label for="driver_phone" class="form-label">Phone Driver<span class="text-red-500">*</span></label>
                         <input type="text" id="driver_phone" name="driver_phone" class="form-control" placeholder="628xxxxxx" value="{{ $driver->driver_phone }}">
                         <x-input-error :messages="$errors->get('driver_phone')" class="mt-2" />
                     </div>

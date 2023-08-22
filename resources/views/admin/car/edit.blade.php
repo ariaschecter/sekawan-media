@@ -15,12 +15,12 @@
                     @csrf
                     @method('PUT')
                     <div class="input-area relative">
-                        <label for="car_name" class="form-label">Car Name (Plat)</label>
+                        <label for="car_name" class="form-label">Car Name (Plat)<span class="text-red-500">*</span></label>
                         <input type="text" id="car_name" name="car_name" class="form-control" placeholder="Enter Your Car Name" value="{{ $car->car_name }}">
                         <x-input-error :messages="$errors->get('car_name')" class="mt-2" />
                     </div>
                     <div>
-                        <label for="car_type" class="form-label">Car Type</label>
+                        <label for="car_type" class="form-label">Car Type<span class="text-red-500">*</span></label>
                         <select name="car_type" id="car_type" class="form-control w-full mt-2">
                             <option selected value="orang" class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">Orang</option>
                             <option value="barang" class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">Barang</option>
@@ -28,22 +28,22 @@
                         <x-input-error :messages="$errors->get('car_type')" class="mt-2" />
                     </div>
                     <div class="input-area relative">
-                        <label for="car_owner" class="form-label">Car Owner</label>
+                        <label for="car_owner" class="form-label">Car Owner<span class="text-red-500">*</span></label>
                         <input type="text" id="car_owner" name="car_owner" class="form-control" placeholder="Enter Your Car Owner" value="{{ $car->car_owner }}">
                         <x-input-error :messages="$errors->get('car_owner')" class="mt-2" />
                     </div>
                     <div class="input-area relative">
-                        <label for="car_bbm" class="form-label">BBM (Liter)</label>
+                        <label for="car_bbm" class="form-label">BBM (Liter)<span class="text-red-500">*</span></label>
                         <input type="text" id="car_bbm" name="car_bbm" class="form-control" placeholder="Enter Your BBM" value="{{ $car->car_bbm }}">
                         <x-input-error :messages="$errors->get('car_bbm')" class="mt-2" />
                     </div>
                     <div>
-                        <label for="car_service" class=" form-label">Car Next Service</label>
+                        <label for="car_service" class=" form-label">Car Next Service<span class="text-red-500">*</span></label>
                         <input class="form-control py-2" id="car_service" name="car_service" value="{{ $car->car_service }}" type="date">
                         <x-input-error :messages="$errors->get('car_service')" class="mt-2" />
                     </div>
                     <div>
-                        <label for="car_avail" class="form-label">Car Availability</label>
+                        <label for="car_avail" class="form-label">Car Availability<span class="text-red-500">*</span></label>
                         <select name="car_avail" id="car_avail" class="form-control w-full mt-2">
                             <option value="ada" {{ $car->car_avail == 'ada' ? 'selected' : '' }} class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">Ada</option>
                             <option value="proses dipinjam" {{ $car->car_avail == 'proses dipinjam' ? 'selected' : '' }} class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">Proses Dipinjam</option>

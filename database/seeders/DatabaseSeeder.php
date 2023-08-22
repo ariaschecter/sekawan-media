@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Car;
+use App\Models\Driver;
+use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -21,5 +24,9 @@ class DatabaseSeeder extends Seeder
             'email' => 'aria@gmail.com',
             'role' => 'admin'
         ]);
+
+        Driver::factory(10)->create();
+        Car::factory(10)->create();
+        Employee::factory(10)->create();
     }
 }

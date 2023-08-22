@@ -14,22 +14,22 @@
                 <form class="space-y-4" method="POST" action="{{ route('admin.user.store') }}">
                     @csrf
                     <div class="input-area relative">
-                        <label for="name" class="form-label">Name</label>
+                        <label for="name" class="form-label">Name<span class="text-red-500">*</span></label>
                         <input type="text" id="name" name="name" class="form-control" placeholder="Enter Your Name" value="{{ old('name') }}">
                         <x-input-error :messages="$errors->get('name')" class="mt-2" />
                     </div>
                     <div class="input-area relative">
-                        <label for="email" class="form-label">Email</label>
+                        <label for="email" class="form-label">Email<span class="text-red-500">*</span></label>
                         <input type="text" id="email" name="email" class="form-control" placeholder="Enter Your Email" value="{{ old('email') }}">
                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
                     </div>
                     <div class="input-area relative">
-                        <label for="password" class="form-label">Password</label>
+                        <label for="password" class="form-label">Password<span class="text-red-500">*</span></label>
                         <input type="password" id="password" name="password" class="form-control" placeholder="Enter Your Password">
                         <x-input-error :messages="$errors->get('password')" class="mt-2" />
                     </div>
                     <div class="input-area relative">
-                        <label for="password_confirmation" class="form-label">Password Confirmation</label>
+                        <label for="password_confirmation" class="form-label">Password Confirmation<span class="text-red-500">*</span></label>
                         <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" placeholder="Enter Your Password Confirmation">
                         <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                     </div>
