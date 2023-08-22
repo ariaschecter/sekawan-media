@@ -46,7 +46,7 @@ class EmployeeController extends Controller
 
         Employee::create($validated);
 
-        return redirect()->route('admin.employee.create');
+        return redirect()->route('admin.employee.create')->with(['message' => 'Sukses Menambahkan Employee.', 'color'=> 'bg-success-500']);;
     }
 
     /**
@@ -69,10 +69,10 @@ class EmployeeController extends Controller
     {
         $breadcrumbs = [
             ['Employee', true, route('admin.employee.index')],
-            [$employee->name, true, route('admin.employee.show', $employee->id)],
+            [$employee->employee_name, true, route('admin.employee.show', $employee->id)],
             ['Edit', false],
         ];
-        $title = $employee->name;
+        $title = $employee->employee_name;
         return view('admin.employee.edit', compact('breadcrumbs', 'title', 'employee'));
     }
 
@@ -88,7 +88,7 @@ class EmployeeController extends Controller
 
         $employee->update($validated);
 
-        return redirect()->route('admin.employee.index');
+        return redirect()->route('admin.employee.index')->with(['message' => 'Sukses Mengubah Data Employee.', 'color'=> 'bg-success-500']);;
     }
 
     /**
@@ -97,6 +97,6 @@ class EmployeeController extends Controller
     public function destroy(Employee $employee)
     {
         $employee->delete();
-        return redirect()->back();
+        return redirect()->back()->with(['message' => 'Sukses Menghapus Data Employee.', 'color'=> 'bg-success-500']);;
     }
 }
