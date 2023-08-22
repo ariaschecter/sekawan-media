@@ -2,9 +2,101 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Employee;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
-    //
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $breadcrumbs = [
+            ['Employee', true, route('admin.employee.index')],
+            ['Index', false],
+        ];
+        $title = 'All Employee';
+        $employees = Employee::latest()->get();
+        return view('admin.employee.index', compact('breadcrumbs', 'title', 'employees'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        $breadcrumbs = [
+            ['Employee', true, route('admin.employee.index')],
+            ['Create', false],
+        ];
+        $title = 'Create Employee';
+        return view('admin.employee.create', compact('breadcrumbs', 'title'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'employee_name' => 'required',
+            'employee_phone' => 'required|numeric',
+        ]);
+
+        Employee::create($validated);
+
+        return redirect()->route('admin.employee.create');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Employee $employee)
+    {
+        $title = $employee->employee_name;
+        $breadcrumbs = [
+            ['Employee', true, route('admin.employee.index')],
+            [$title, false],
+        ];
+        return view('admin.employee.show', compact('breadcrumbs', 'title', 'employee'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Employee $employee)
+    {
+        $breadcrumbs = [
+            ['Employee', true, route('admin.employee.index')],
+            [$employee->name, true, route('admin.employee.show', $employee->id)],
+            ['Edit', false],
+        ];
+        $title = $employee->name;
+        return view('admin.employee.edit', compact('breadcrumbs', 'title', 'employee'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Employee $employee)
+    {
+        $validated = $request->validate([
+            'employee_name' => 'required',
+            'employee_phone' => 'required|numeric',
+        ]);
+
+        $employee->update($validated);
+
+        return redirect()->route('admin.employee.index');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Employee $employee)
+    {
+        $employee->delete();
+        return redirect()->back();
+    }
 }

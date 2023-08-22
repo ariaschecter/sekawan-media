@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('driver_name');
             $table->string('driver_phone');
-            $table->boolean('driver_avail');
+            $table->boolean('driver_avail')->default(1);
             $table->timestamps();
         });
     }

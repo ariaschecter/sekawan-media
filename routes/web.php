@@ -1,6 +1,12 @@
 <?php
 
+use App\Http\Controllers\CarController;
+use App\Http\Controllers\CarHistoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DriverController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderLevelController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +44,13 @@ Route::middleware('role:admin', 'auth')->prefix('admin')->name('admin.')->group(
     Route::get('user/archive', [UserController::class, 'archive'])->name('user.archive');
     Route::post('user/restore/{id}', [UserController::class, 'restore'])->name('user.restore');
     Route::resource('user', UserController::class)->except('edit')->withTrashed(['*']);
+
+    Route::resource('driver', DriverController::class);
+    Route::resource('employee', EmployeeController::class);
+    Route::resource('car', CarController::class);
+    Route::resource('car-history', CarHistoryController::class);
+    Route::resource('order', OrderController::class);
+    Route::resource('order-level', OrderLevelController::class);
 });
 
 require __DIR__.'/auth.php';
