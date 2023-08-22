@@ -52,7 +52,6 @@
                         </select>
                         <x-input-error :messages="$errors->get('history_status')" class="mt-2" />
                     </div>
-                    <button class="btn inline-flex justify-center btn-dark">Submit</button>
                 </form>
             </div>
         </div>

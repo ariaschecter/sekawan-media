@@ -11,7 +11,7 @@ class Car extends Model
 
     protected $guarded = [''];
 
-    public function history() {
+    public function order() {
         return $this->hasMany(CarHistory::class, 'driver_id', 'id');
     }
 }

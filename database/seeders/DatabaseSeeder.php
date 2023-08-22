@@ -17,13 +17,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
 
         User::factory()->create([
             'name' => 'Acielana',
             'email' => 'aria@gmail.com',
             'role' => 'admin'
         ]);
+
+        User::factory(10)->create();
 
         Driver::factory(10)->create();
         Car::factory(10)->create();

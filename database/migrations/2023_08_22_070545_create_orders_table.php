@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('employee_id');
             $table->foreignId('driver_id');
-            $table->string('order_acc');
-            $table->string('order_status');
+            $table->foreignId('car_id');
+            $table->string('user_id');
+            $table->enum('order_status', ['proses', 'terima', 'tolak', 'selesai'])->default('proses');
             $table->timestamps();
         });
     }
