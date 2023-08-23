@@ -130,22 +130,13 @@
               </li>
 
               <li class="">
-                <a href="javascript:void(0)" class="navItem">
+                <a href="{{ route('admin.order-level.index') }}" class="navItem {{ $route == 'admin.order-level.index' ? 'active' : '' }}">
                     <span class="flex items-center">
-                        <iconify-icon class="nav-icon" icon="heroicons-outline:user"></iconify-icon>
+                        <iconify-icon class=" nav-icon" icon="heroicons-outline:home"></iconify-icon>
                         <span>Order Level</span>
                     </span>
-                  <iconify-icon class="icon-arrow" icon="heroicons-outline:chevron-right"></iconify-icon>
                 </a>
-                <ul class="sidebar-submenu">
-                  <li class="">
-                    <a href="{{ route('admin.order-level.index') }}" class="{{ $route == 'admin.order-level.index' ? 'active' : '' }}">All Order Level</a>
-                  </li>
-                  <li class="">
-                    <a href="{{ route('admin.order-level.create') }}" class="{{ $route == 'admin.order-level.create' ? 'active' : '' }}">Add Order Level</a>
-                  </li>
-                </ul>
-              </li>
+            </li>
 
             <li class="sidebar-menu-title">User</li>
             <li class="">

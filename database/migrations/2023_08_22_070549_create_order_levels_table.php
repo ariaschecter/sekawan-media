@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('order_id');
             $table->foreignId('user_id');
-            $table->boolean('order_level_status')->nullable();
+            $table->enum('order_level_status', ['terima', 'tolak'])->nullable();
             $table->timestamps();
         });
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Acc\AccOrderLevelController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CarHistoryController;
 use App\Http\Controllers\DashboardController;
@@ -50,7 +51,15 @@ Route::middleware('role:admin', 'auth')->prefix('admin')->name('admin.')->group(
     Route::resource('car', CarController::class);
     Route::resource('car-history', CarHistoryController::class);
     Route::resource('order', OrderController::class)->except(['edit', 'update']);
-    Route::resource('order-level', OrderLevelController::class);
+    Route::resource('order-level', OrderLevelController::class)->except(['create', 'delete']);
+});
+
+Route::middleware('role:acc', 'auth')->prefix('acc')->name('acc.')->group(function () {
+    Route::controller(DashboardController::class)->group(function () {
+        Route::get('/', 'acc')->name('dashboard');
+    });
+
+    Route::resource('order-level', AccOrderLevelController::class)->except(['create', 'destroy']);
 });
 
 require __DIR__.'/auth.php';

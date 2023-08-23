@@ -24,7 +24,18 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin'
         ]);
 
+        User::factory()->create([
+            'name' => 'AAAA',
+            'email' => 'acc@gmail.com',
+            'role' => 'acc'
+        ]);
+
         User::factory(10)->create();
+        Car::factory()->create(['car_name' => 'L111L']);
+        Car::factory()->create(['car_name' => 'L222L']);
+        Car::factory()->create(['car_name' => 'L333L']);
+        Car::factory()->create(['car_name' => 'L444L']);
+        Car::factory()->create(['car_name' => 'L555L']);
 
         Driver::factory(10)->create();
         Car::factory(10)->create();

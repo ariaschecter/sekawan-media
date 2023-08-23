@@ -12,22 +12,24 @@ class DashboardController extends Controller
         $role = auth()->user()->role;
         if ($role === 'admin') {
             return redirect()->route('admin.dashboard');
-        } else if ($role === 'user') {
-            dd('See DashboardController, you are a user');
+        } else if ($role === 'acc') {
+            return redirect()->route('acc.dashboard');
         }
     }
 
     public function admin() {
         $breadcrumbs = [
-            ['Utility', route('admin.dashboard')],
-            ['Acielana', route('logout')],
+            ['Dashboard', false],
         ];
-        $breadcrumb_active = 'Blank Page';
 
-        return view('admin.dashboard.index', compact('breadcrumbs', 'breadcrumb_active'));
+        return view('admin.dashboard.index', compact('breadcrumbs'));
     }
 
-    public function image() {
-        dd(Str::uuid());
+    public function acc() {
+        $breadcrumbs = [
+            ['Dashboard', false],
+        ];
+
+        return view('acc.dashboard.index', compact('breadcrumbs'));
     }
 }

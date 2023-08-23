@@ -69,7 +69,8 @@ class OrderController extends Controller
         // Add data to user_id
         OrderLevel::create([
             'order_id' => $order->id,
-            'user_id' => $order->user_id,
+            'user_id' => $request->user_id,
+            'order_level_status' => null,
         ]);
 
         return redirect()->route('admin.order.create')->with(['message' => 'Sukses Menambahkan Order Mobil.', 'color'=> 'bg-success-500']);;
