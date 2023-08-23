@@ -43,7 +43,7 @@
                 <a href="{{ route('acc.order-level.index') }}" class="navItem {{ $route == 'acc.order-level.index' ? 'active' : '' }}">
                     <span class="flex items-center">
                         <iconify-icon class=" nav-icon" icon="heroicons-outline:home"></iconify-icon>
-                        <span>Order Level</span>
+                        <span>Persetujuan</span>
                     </span>
                 </a>
             </li>

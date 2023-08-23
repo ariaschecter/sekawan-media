@@ -19,12 +19,12 @@
                         <x-input-error :messages="$errors->get('driver_name')" class="mt-2" />
                     </div>
                     <div class="input-area relative">
-                        <label for="driver_phone" class="form-label">Phone Driver<span class="text-red-500">*</span></label>
+                        <label for="driver_phone" class="form-label">Telepon Driver<span class="text-red-500">*</span></label>
                         <input type="text" id="driver_phone" name="driver_phone" class="form-control" placeholder="628xxxxxx" value="{{ $driver->driver_phone }}">
                         <x-input-error :messages="$errors->get('driver_phone')" class="mt-2" />
                     </div>
                     <div>
-                        <label for="driver_avail" class="form-label">Driver Availability<span class="text-red-500">*</span></label>
+                        <label for="driver_avail" class="form-label">Ketersediaan Driver<span class="text-red-500">*</span></label>
                         <select name="driver_avail" id="driver_avail" class="form-control w-full mt-2">
                             <option value="1" {{ $driver->driver_avail == '1' ? 'selected' : '' }} class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">Ada</option>
                             <option value="0" {{ $driver->driver_avail == '0' ? 'selected' : '' }} class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">Tidak Ada</option>

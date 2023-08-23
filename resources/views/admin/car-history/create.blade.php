@@ -24,7 +24,7 @@
                     </div>
 
                     <div>
-                        <label for="history_pinjam" class=" form-label">Waktu Pinjam<span class="text-red-500">*</span></label>
+                        <label for="history_pinjam" class=" form-label">Tanggal Pinjam<span class="text-red-500">*</span></label>
                         <input class="form-control py-2" id="history_pinjam" name="history_pinjam" value="{{ old('history_pinjam') }}" type="date">
                         <x-input-error :messages="$errors->get('history_pinjam')" class="mt-2" />
                     </div>

@@ -24,19 +24,19 @@
                                                 Id
                                             </th>
                                             <th scope="col" class=" table-th ">
-                                                Car Name
+                                                Nama Mobil
                                             </th>
                                             <th scope="col" class=" table-th ">
-                                                Employee Name
+                                                Nama Pegawai
                                             </th>
                                             <th scope="col" class=" table-th ">
-                                                Driver Name
+                                                Nama Driver
                                             </th>
                                             <th scope="col" class=" table-th ">
-                                                Date Pinjam
+                                                Tanggal Pinjam
                                             </th>
                                             <th scope="col" class=" table-th ">
-                                                Date Kembali
+                                                Tanggal Dikembalikan
                                             </th>
                                             <th scope="col" class=" table-th ">
                                                 Note

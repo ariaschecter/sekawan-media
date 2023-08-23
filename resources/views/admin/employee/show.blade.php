@@ -17,7 +17,7 @@
                         <x-input-error :messages="$errors->get('employee_name')" class="mt-2" />
                     </div>
                     <div class="input-area relative">
-                        <label for="employee_phone" class="form-label">Phone Employee</label>
+                        <label for="employee_phone" class="form-label">Telepon Employee</label>
                         <input type="text" id="employee_phone" name="employee_phone" class="form-control" placeholder="628xxxxxx" value="{{ $employee->employee_phone }}" readonly>
                         <x-input-error :messages="$errors->get('employee_phone')" class="mt-2" />
                     </div>

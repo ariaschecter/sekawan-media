@@ -18,10 +18,10 @@ class AccOrderLevelController extends Controller
     public function index()
     {
         $breadcrumbs = [
-            ['Order Level', true, route('acc.order-level.index')],
+            ['Persetujuan', true, route('acc.order-level.index')],
             ['Index', false],
         ];
-        $title = 'All Order Level';
+        $title = 'Persetujuan';
         $order_levels = OrderLevel::where('user_id', Auth::id())->orderBy('order_level_status', 'ASC')->get();
         return view('acc.order-level.index', compact('breadcrumbs', 'title', 'order_levels'));
     }
@@ -31,9 +31,9 @@ class AccOrderLevelController extends Controller
      */
     public function show(OrderLevel $order_level)
     {
-        $title = 'Order Level';
+        $title = 'Persetujuan';
         $breadcrumbs = [
-            ['Order Level', true, route('acc.order-level.index')],
+            ['Persetujuan', true, route('acc.order-level.index')],
             [$order_level->id, false],
         ];
 
@@ -49,10 +49,10 @@ class AccOrderLevelController extends Controller
     public function edit(OrderLevel $order_level)
     {
         $breadcrumbs = [
-            ['Order Level', true, route('acc.order-level.index')],
+            ['Persetujuan', true, route('acc.order-level.index')],
             [$order_level->id, false],
         ];
-        $title = 'Edit Order';
+        $title = 'Edit Persetujuan';
 
         $find = explode(',', $order_level->order->user_id);
 

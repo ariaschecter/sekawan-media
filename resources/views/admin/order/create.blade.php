@@ -14,7 +14,7 @@
                 <form class="space-y-4" method="POST" action="{{ route('admin.order.store') }}">
                     @csrf
                     <div>
-                        <label for="employee_id" class="form-label">Employee<span class="text-red-500">*</span></label>
+                        <label for="employee_id" class="form-label">Pegawai<span class="text-red-500">*</span></label>
                         <select name="employee_id" id="employee_id" class="form-control w-full mt-2">
                             @foreach ($employees as $employee)
                                 <option value="{{ $employee->id }}" {{ old('employee_id') == $employee->id ? 'selected' : '' }} class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">{{ $employee->employee_name }}</option>
@@ -23,7 +23,7 @@
                         <x-input-error :messages="$errors->get('employee_id')" class="mt-2" />
                     </div>
                     <div>
-                        <label for="car_id" class="form-label">Car<span class="text-red-500">*</span></label>
+                        <label for="car_id" class="form-label">Mobil<span class="text-red-500">*</span></label>
                         <select name="car_id" id="car_id" class="form-control w-full mt-2">
                             @foreach ($cars as $car)
                                 <option value="{{ $car->id }}" {{ old('car_id') == $car->id ? 'selected' : '' }} class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">{{ $car->car_name }} - {{ $car->car_type }}</option>

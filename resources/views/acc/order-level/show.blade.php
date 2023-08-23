@@ -13,12 +13,12 @@
             <div class="card-text h-full ">
                 <form class="space-y-4">
                     <div class="input-area relative">
-                        <label for="employee_id" class="form-label">Employee</label>
+                        <label for="employee_id" class="form-label">Pegawai</label>
                         <input type="text" id="employee_id" name="employee_id" class="form-control" placeholder="Enter Your Driver Name" value="{{ $order_level->order->employee->employee_name }}" readonly>
                         <x-input-error :messages="$errors->get('employee_id')" class="mt-2" />
                     </div>
                     <div class="input-area relative">
-                        <label for="car_id" class="form-label">Car</label>
+                        <label for="car_id" class="form-label">Mobil</label>
                         <input type="text" id="car_id" name="car_id" class="form-control" placeholder="Enter Your Driver Name" value="{{ $order_level->order->car->car_name }} - {{ $order_level->order->car->car_type }}" readonly>
                         <x-input-error :messages="$errors->get('car_id')" class="mt-2" />
                     </div>

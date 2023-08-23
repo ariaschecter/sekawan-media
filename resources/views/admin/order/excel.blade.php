@@ -14,13 +14,13 @@
                 <form class="space-y-4" method="POST" action="{{ route('admin.order.excel') }}">
                     @csrf
                     <div>
-                        <label for="date_from" class=" form-label">Date From<span class="text-red-500">*</span></label>
+                        <label for="date_from" class=" form-label">Tanggal Awal<span class="text-red-500">*</span></label>
                         <input class="form-control py-2" id="date_from" name="date_from" value="{{ old('date_from') }}" type="date">
                         <x-input-error :messages="$errors->get('date_from')" class="mt-2" />
                     </div>
 
                     <div>
-                        <label for="date_end" class=" form-label">Date End<span class="text-red-500">*</span></label>
+                        <label for="date_end" class=" form-label">Tanggal Akhir<span class="text-red-500">*</span></label>
                         <input class="form-control py-2" id="date_end" name="date_end" value="{{ old('date_end') }}" type="date">
                         <x-input-error :messages="$errors->get('date_end')" class="mt-2" />
                     </div>

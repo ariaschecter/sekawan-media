@@ -17,7 +17,7 @@
                         <x-input-error :messages="$errors->get('driver_name')" class="mt-2" />
                     </div>
                     <div class="input-area relative">
-                        <label for="driver_phone" class="form-label">Phone Driver</label>
+                        <label for="driver_phone" class="form-label">Telepon Driver</label>
                         <input type="text" id="driver_phone" name="driver_phone" class="form-control" placeholder="628xxxxxx" value="{{ $driver->driver_phone }}" readonly>
                         <x-input-error :messages="$errors->get('driver_phone')" class="mt-2" />
                     </div>

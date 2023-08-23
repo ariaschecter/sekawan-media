@@ -21,13 +21,13 @@
                     </div>
 
                     <div>
-                        <label for="history_pinjam" class=" form-label">Waktu Pinjam</label>
+                        <label for="history_pinjam" class=" form-label">Tanggal Pinjam</label>
                         <input class="form-control py-2" id="history_pinjam" name="history_pinjam" value="{{ $car_history->history_pinjam }}" type="date" readonly>
                         <x-input-error :messages="$errors->get('history_pinjam')" class="mt-2" />
                     </div>
 
                     <div>
-                        <label for="history_kembali" class=" form-label">Waktu Dikembalikan</label>
+                        <label for="history_kembali" class=" form-label">Tanggal Dikembalikan</label>
                         <input class="form-control py-2" id="history_kembali" name="history_kembali" type="date">
                         <x-input-error :messages="$errors->get('history_kembali')" class="mt-2" />
                     </div>

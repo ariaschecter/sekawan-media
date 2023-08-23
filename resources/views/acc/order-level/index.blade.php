@@ -24,10 +24,10 @@
                                                 Id
                                             </th>
                                             <th scope="col" class=" table-th ">
-                                                Car Name
+                                                Nama Mobil
                                             </th>
                                             <th scope="col" class=" table-th ">
-                                                Employee
+                                                Pegawai
                                             </th>
                                             <th scope="col" class=" table-th ">
                                                 Driver
