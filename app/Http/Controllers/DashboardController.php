@@ -16,6 +16,7 @@ class DashboardController extends Controller
 {
     public function index() {
         $role = auth()->user()->role;
+
         if ($role === 'admin') {
             return redirect()->route('admin.dashboard');
         } else if ($role === 'acc') {
@@ -27,34 +28,39 @@ class DashboardController extends Controller
         $breadcrumbs = [
             ['Dashboard', false],
         ];
+        $chart1 = new SimpleChart;
+        $chart2 = new SimpleChart;
 
         $months = Order::with('car')->where('order_status', 'selesai')->whereMonth('updated_at', Carbon::now()->month)->select('car_id', DB::raw('count(*) as total'))
                 ->groupBy('car_id')
                 ->orderBy('total', 'ASC')
                 ->get();
         foreach($months as $key => $order) {
-            $y[$key] = $order->total;
-            $x[$key] = $order->car->car_name . ' - ' . $order->car->car_type;
+            $monthY[$key] = $order->total;
+            $monthX[$key] = $order->car->car_name . ' - ' . $order->car->car_type;
         }
-
-        $chart1 = new SimpleChart;
-        $chart1->labels($x);
-        $chart1->dataset('Total Pakai Bulan Ini', 'line', $y);
 
         $all_times = Order::with('car')->where('order_status', 'selesai')->select('car_id', DB::raw('count(*) as total'))
                 ->groupBy('car_id')
                 ->orderBy('total', 'ASC')
                 ->get();
         foreach($all_times as $key => $order) {
-            $y[$key] = $order->total;
-            $x[$key] = $order->car->car_name . ' - ' . $order->car->car_type;
+            $allY[$key] = $order->total;
+            $allX[$key] = $order->car->car_name . ' - ' . $order->car->car_type;
         }
 
-        $chart2 = new SimpleChart;
-        $chart2->labels($x);
-        $chart2->dataset('Total Pakai Semua Waktu', 'line', $y);
+        if (count($months) > 0) {
+            $chart1->labels($monthX);
+            $chart1->dataset('Total Pakai Bulan Ini', 'line', $monthY);
+        }
 
-        return view('admin.dashboard.index', compact('breadcrumbs', 'chart1', 'chart2'));
+        if (count($all_times) > 0) {
+            $chart2->labels($allX);
+            $chart2->dataset('Total Pakai Semua Waktu', 'line', $allY);
+        }
+
+
+        return view('admin.dashboard.index', compact('breadcrumbs', 'chart1', 'chart2', 'months', 'all_times'));
     }
 
     public function acc() {

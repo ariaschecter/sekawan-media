@@ -11,7 +11,11 @@
     <div class="card my-5">
         <div class="card-body flex flex-col p-6">
             <div class="card-text h-full ">
+                @if (count($months) > 0)
                 {!! $chart1->container() !!}
+                @else
+                <h5>Data Kosong</h5>
+                @endif
             </div>
         </div>
     </div>
@@ -20,7 +24,11 @@
     <div class="card my-5">
         <div class="card-body flex flex-col p-6">
             <div class="card-text h-full ">
+                @if (count($all_times) > 0)
                 {!! $chart2->container() !!}
+                @else
+                <h5>Data Kosong</h5>
+                @endif
             </div>
         </div>
     </div>
@@ -30,6 +38,6 @@
 @section('js')
 {{-- {!! $chart1->renderChartJsLibrary() !!}
 {!! $chart1->renderJs() !!} --}}
-{!! $chart1->script() !!}
-{!! $chart2->script() !!}
+{!! count($months) > 0 ? $chart1->script() : '' !!}
+{!! count($all_times) > 0 ? $chart2->script() : '' !!}
 @endsection

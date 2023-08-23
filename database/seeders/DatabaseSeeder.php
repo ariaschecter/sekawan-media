@@ -27,23 +27,39 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory()->create([
-            'name' => 'AAAA',
-            'email' => 'acc@gmail.com',
+            'name' => 'acc1',
+            'email' => 'acc1@gmail.com',
+            'role' => 'acc'
+        ]);
+        User::factory()->create([
+            'name' => 'acc2',
+            'email' => 'acc2@gmail.com',
+            'role' => 'acc'
+        ]);
+        User::factory()->create([
+            'name' => 'acc3',
+            'email' => 'acc3@gmail.com',
             'role' => 'acc'
         ]);
 
-        User::factory(10)->create();
         Car::factory()->create(['car_name' => 'L111L']);
         Car::factory()->create(['car_name' => 'L222L']);
         Car::factory()->create(['car_name' => 'L333L']);
+        Car::factory()->create(['car_name' => 'L444L']);
+        Car::factory()->create(['car_name' => 'L555L']);
+        Car::factory()->create(['car_name' => 'L666L']);
 
-        Driver::factory(10)->create();
-        // Car::factory(10)->create();
+        Driver::factory()->create(['driver_name' => 'driver1']);
+        Driver::factory()->create(['driver_name' => 'driver2']);
+        Driver::factory()->create(['driver_name' => 'driver3']);
+        Driver::factory()->create(['driver_name' => 'driver4']);
+        Driver::factory()->create(['driver_name' => 'driver5']);
+
         Employee::factory(10)->create();
 
-        Order::factory(10)->create();
-        for($i = 1; $i < 10; $i++) {
-            CarHistory::factory()->create(['order_id' => $i]);
-        }
+        // Order::factory(10)->create();
+        // for($i = 1; $i < 10; $i++) {
+        //     CarHistory::factory()->create(['order_id' => $i]);
+        // }
     }
 }
