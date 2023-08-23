@@ -165,13 +165,13 @@
                 </a>
                 <ul class="sidebar-submenu">
                   <li class="">
-                    <a href="{{ route('admin.user.index') }}" class="{{ $route == 'admin.user.index' ? 'active' : '' }}">All User</a>
+                    <a href="{{ route('admin.user.index') }}" class="{{ $route == 'admin.user.index' ? 'active' : '' }}">Semua User</a>
                   </li>
                   <li class="">
-                    <a href="{{ route('admin.user.create') }}" class="{{ $route == 'admin.user.create' ? 'active' : '' }}">Add User</a>
+                    <a href="{{ route('admin.user.create') }}" class="{{ $route == 'admin.user.create' ? 'active' : '' }}">Tambah User</a>
                   </li>
                   <li class="">
-                    <a href="{{ route('admin.user.archive') }}" class="{{ $route == 'admin.user.archive' ? 'active' : '' }}">Archive</a>
+                    <a href="{{ route('admin.user.archive') }}" class="{{ $route == 'admin.user.archive' ? 'active' : '' }}">Arsip</a>
                   </li>
                 </ul>
               </li>
