@@ -10,6 +10,7 @@ use App\Charts\SimpleChart;
 use App\Models\Order;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Spatie\Activitylog\Models\Activity;
 
 class DashboardController extends Controller
 {
@@ -52,7 +53,7 @@ class DashboardController extends Controller
         $chart2 = new SimpleChart;
         $chart2->labels($x);
         $chart2->dataset('Total Pakai Semua Waktu', 'line', $y);
-        
+
         return view('admin.dashboard.index', compact('breadcrumbs', 'chart1', 'chart2'));
     }
 
@@ -62,5 +63,15 @@ class DashboardController extends Controller
         ];
 
         return view('acc.dashboard.index', compact('breadcrumbs'));
+    }
+
+    public function log() {
+        $breadcrumbs = [
+            ['Log', true, route('admin.log.index')],
+            ['Index', false],
+        ];
+        $title = 'All Log';
+        $logs = Activity::latest()->get();
+        return view('admin.log.index', compact('breadcrumbs', 'title', 'logs'));
     }
 }

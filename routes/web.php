@@ -40,6 +40,7 @@ Route::middleware('auth', 'verified')->controller(DashboardController::class)->g
 Route::middleware('role:admin', 'auth')->prefix('admin')->name('admin.')->group(function () {
     Route::controller(DashboardController::class)->group(function () {
         Route::get('/', 'admin')->name('dashboard');
+        Route::get('/log', 'log')->name('log.index');
     });
 
     Route::get('user/archive', [UserController::class, 'archive'])->name('user.archive');
@@ -50,6 +51,8 @@ Route::middleware('role:admin', 'auth')->prefix('admin')->name('admin.')->group(
     Route::resource('employee', EmployeeController::class);
     Route::resource('car', CarController::class);
     Route::resource('car-history', CarHistoryController::class)->except('destory');
+    Route::get('/order/excel', [OrderController::class, 'excel'])->name('order.excel');
+    Route::post('/order/excel', [OrderController::class, 'excel_post']);
     Route::resource('order', OrderController::class)->except(['edit', 'update']);
     Route::resource('order-level', OrderLevelController::class)->except(['create', 'delete']);
 });

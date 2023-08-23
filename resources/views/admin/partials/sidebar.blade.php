@@ -126,14 +126,26 @@
                   <li class="">
                     <a href="{{ route('admin.order.create') }}" class="{{ $route == 'admin.order.create' ? 'active' : '' }}">Add Order</a>
                   </li>
+                  <li class="">
+                    <a href="{{ route('admin.order.excel') }}" class="{{ $route == 'admin.order.excel' ? 'active' : '' }}">Export Excel</a>
+                  </li>
                 </ul>
               </li>
 
-              <li class="">
+            <li class="">
                 <a href="{{ route('admin.order-level.index') }}" class="navItem {{ $route == 'admin.order-level.index' ? 'active' : '' }}">
                     <span class="flex items-center">
                         <iconify-icon class=" nav-icon" icon="heroicons-outline:home"></iconify-icon>
                         <span>Order Level</span>
+                    </span>
+                </a>
+            </li>
+
+            <li class="">
+                <a href="{{ route('admin.log.index') }}" class="navItem {{ $route == 'admin.log.index' ? 'active' : '' }}">
+                    <span class="flex items-center">
+                        <iconify-icon class=" nav-icon" icon="heroicons-outline:home"></iconify-icon>
+                        <span>Log</span>
                     </span>
                 </a>
             </li>

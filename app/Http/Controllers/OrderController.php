@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ArrayExport;
 use App\Models\Car;
 use App\Models\Driver;
 use App\Models\Employee;
 use App\Models\Order;
 use App\Models\OrderLevel;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class OrderController extends Controller
 {
@@ -94,39 +97,6 @@ class OrderController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    // public function edit(Order $order)
-    // {
-    //     $breadcrumbs = [
-    //         ['Order', true, route('admin.order.index')],
-    //         [$order->id, true, route('admin.order.show', $order->id)],
-    //         ['Edit', false],
-    //     ];
-    //     $title = 'Edit Order';
-
-    //     $find = explode(',', $order->user_id);
-
-    //     $users = User::find($find);
-
-    //     return view('admin.order.edit', compact('breadcrumbs', 'title', 'order', 'users'));
-    // }
-
-    // /**
-    //  * Update the specified resource in storage.
-    //  */
-    // public function update(Request $request, Order $order)
-    // {
-    //     $validated = $request->validate([
-    //         'order_status' => 'required',
-    //     ]);
-
-    //     $order->update($validated);
-
-    //     return redirect()->route('admin.order.index')->with(['message' => 'Sukses Mengubah Data Order Mobil.', 'color'=> 'bg-success-500']);;
-    // }
-
-    /**
      * Remove the specified resource from storage.
      */
     public function destroy(Order $order)
@@ -136,5 +106,42 @@ class OrderController extends Controller
         OrderLevel::where('order_id', $order->id)->delete();
         $order->delete();
         return redirect()->back()->with(['message' => 'Sukses Menghapus Data Order Mobil.', 'color'=> 'bg-success-500']);;
+    }
+
+    public function excel() {
+        $breadcrumbs = [
+            ['Order', true, route('admin.order.index')],
+            ['Export', false],
+        ];
+        $title = 'Export Excel';
+
+        return view('admin.order.excel', compact('breadcrumbs', 'title'));
+    }
+
+    public function excel_post(Request $request) {
+        $request->validate([
+            'date_from' => 'required|date',
+            'date_end' => 'required|date',
+        ]);
+        $from = $request->date_from;
+        $end = $request->date_end;
+
+        $orders = Order::with('car', 'employee', 'driver')->whereDate('created_at', '>=', $from)->whereDate('created_at', '<=', $end)->get();
+        $change[0][0] = 'Car Name';
+        $change[0][1] = 'Employee Name';
+        $change[0][2] = 'Driver Name';
+        $change[0][3] = 'Order Status';
+        $change[0][4] = 'Date';
+        foreach($orders as $key => $order) {
+            $change[$key + 1][0] = $order->car->car_name;
+            $change[$key + 1][1] = $order->employee->employee_name;
+            $change[$key + 1][2] = $order->driver->driver_name;
+            $change[$key + 1][3] = $order->order_status;
+            $change[$key + 1][4] = Carbon::parse($order->created_at)->format('d M Y');
+        }
+
+        $export = new ArrayExport(array($change));
+        $filename = 'Export ' . $from . ' to ' . $end . '.xlsx';
+        return Excel::download($export, $filename);
     }
 }
