@@ -44,16 +44,16 @@
                 <a href="javascript:void(0)" class="navItem">
                     <span class="flex items-center">
                         <iconify-icon class="nav-icon" icon="heroicons-outline:computer-desktop"></iconify-icon>
-                        <span>Order</span>
+                        <span>Pemesanan</span>
                     </span>
                   <iconify-icon class="icon-arrow" icon="heroicons-outline:chevron-right"></iconify-icon>
                 </a>
                 <ul class="sidebar-submenu">
                   <li class="">
-                    <a href="{{ route('admin.order.index') }}" class="{{ $route == 'admin.order.index' ? 'active' : '' }}">All Order</a>
+                    <a href="{{ route('admin.order.index') }}" class="{{ $route == 'admin.order.index' ? 'active' : '' }}">Semua Pemesanan</a>
                   </li>
                   <li class="">
-                    <a href="{{ route('admin.order.create') }}" class="{{ $route == 'admin.order.create' ? 'active' : '' }}">Add Order</a>
+                    <a href="{{ route('admin.order.create') }}" class="{{ $route == 'admin.order.create' ? 'active' : '' }}">Tambah Pemesanan</a>
                   </li>
                   <li class="">
                     <a href="{{ route('admin.order.excel') }}" class="{{ $route == 'admin.order.excel' ? 'active' : '' }}">Export Excel</a>
@@ -65,7 +65,7 @@
                 <a href="{{ route('admin.order-level.index') }}" class="navItem {{ $route == 'admin.order-level.index' ? 'active' : '' }}">
                     <span class="flex items-center">
                         <iconify-icon class=" nav-icon" icon="heroicons-outline:identification"></iconify-icon>
-                        <span>Order Level</span>
+                        <span>Semua Persetujuan</span>
                     </span>
                 </a>
             </li>
@@ -80,10 +80,10 @@
                 </a>
                 <ul class="sidebar-submenu">
                   <li class="">
-                    <a href="{{ route('admin.car-history.index') }}" class="{{ $route == 'admin.car-history.index' ? 'active' : '' }}">All Peminjaman</a>
+                    <a href="{{ route('admin.car-history.index') }}" class="{{ $route == 'admin.car-history.index' ? 'active' : '' }}">Semua Peminjaman</a>
                   </li>
                   <li class="">
-                    <a href="{{ route('admin.car-history.create') }}" class="{{ $route == 'admin.car-history.create' ? 'active' : '' }}">Add Peminjaman</a>
+                    <a href="{{ route('admin.car-history.create') }}" class="{{ $route == 'admin.car-history.create' ? 'active' : '' }}">Tambah Peminjaman</a>
                   </li>
                 </ul>
             </li>
@@ -100,28 +100,10 @@
                 </a>
                 <ul class="sidebar-submenu">
                   <li class="">
-                    <a href="{{ route('admin.driver.index') }}" class="{{ $route == 'admin.driver.index' ? 'active' : '' }}">All Driver</a>
+                    <a href="{{ route('admin.driver.index') }}" class="{{ $route == 'admin.driver.index' ? 'active' : '' }}">Semua Driver</a>
                   </li>
                   <li class="">
-                    <a href="{{ route('admin.driver.create') }}" class="{{ $route == 'admin.driver.create' ? 'active' : '' }}">Add Driver</a>
-                  </li>
-                </ul>
-            </li>
-
-            <li class="">
-                <a href="javascript:void(0)" class="navItem">
-                    <span class="flex items-center">
-                        <iconify-icon class="nav-icon" icon="heroicons-outline:user"></iconify-icon>
-                        <span>Employee</span>
-                    </span>
-                  <iconify-icon class="icon-arrow" icon="heroicons-outline:chevron-right"></iconify-icon>
-                </a>
-                <ul class="sidebar-submenu">
-                  <li class="">
-                    <a href="{{ route('admin.employee.index') }}" class="{{ $route == 'admin.employee.index' ? 'active' : '' }}">All Employee</a>
-                  </li>
-                  <li class="">
-                    <a href="{{ route('admin.employee.create') }}" class="{{ $route == 'admin.employee.create' ? 'active' : '' }}">Add Employee</a>
+                    <a href="{{ route('admin.driver.create') }}" class="{{ $route == 'admin.driver.create' ? 'active' : '' }}">Tambah Driver</a>
                   </li>
                 </ul>
             </li>
@@ -130,16 +112,34 @@
                 <a href="javascript:void(0)" class="navItem">
                     <span class="flex items-center">
                         <iconify-icon class="nav-icon" icon="heroicons-outline:user"></iconify-icon>
-                        <span>Car</span>
+                        <span>Pegawai</span>
                     </span>
                   <iconify-icon class="icon-arrow" icon="heroicons-outline:chevron-right"></iconify-icon>
                 </a>
                 <ul class="sidebar-submenu">
                   <li class="">
-                    <a href="{{ route('admin.car.index') }}" class="{{ $route == 'admin.car.index' ? 'active' : '' }}">All Car</a>
+                    <a href="{{ route('admin.employee.index') }}" class="{{ $route == 'admin.employee.index' ? 'active' : '' }}">All Pegawai</a>
                   </li>
                   <li class="">
-                    <a href="{{ route('admin.car.create') }}" class="{{ $route == 'admin.car.create' ? 'active' : '' }}">Add Car</a>
+                    <a href="{{ route('admin.employee.create') }}" class="{{ $route == 'admin.employee.create' ? 'active' : '' }}">Add Pegawai</a>
+                  </li>
+                </ul>
+            </li>
+
+            <li class="">
+                <a href="javascript:void(0)" class="navItem">
+                    <span class="flex items-center">
+                        <iconify-icon class="nav-icon" icon="heroicons-outline:user"></iconify-icon>
+                        <span>Mobil</span>
+                    </span>
+                  <iconify-icon class="icon-arrow" icon="heroicons-outline:chevron-right"></iconify-icon>
+                </a>
+                <ul class="sidebar-submenu">
+                  <li class="">
+                    <a href="{{ route('admin.car.index') }}" class="{{ $route == 'admin.car.index' ? 'active' : '' }}">Semua Mobil</a>
+                  </li>
+                  <li class="">
+                    <a href="{{ route('admin.car.create') }}" class="{{ $route == 'admin.car.create' ? 'active' : '' }}">Tambah Mobil</a>
                   </li>
                 </ul>
             </li>
