@@ -5,8 +5,10 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Car;
+use App\Models\CarHistory;
 use App\Models\Driver;
 use App\Models\Employee;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -34,11 +36,14 @@ class DatabaseSeeder extends Seeder
         Car::factory()->create(['car_name' => 'L111L']);
         Car::factory()->create(['car_name' => 'L222L']);
         Car::factory()->create(['car_name' => 'L333L']);
-        Car::factory()->create(['car_name' => 'L444L']);
-        Car::factory()->create(['car_name' => 'L555L']);
 
         Driver::factory(10)->create();
-        Car::factory(10)->create();
+        // Car::factory(10)->create();
         Employee::factory(10)->create();
+
+        Order::factory(10)->create();
+        for($i = 1; $i < 10; $i++) {
+            CarHistory::factory()->create(['order_id' => $i]);
+        }
     }
 }
