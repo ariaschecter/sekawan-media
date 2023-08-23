@@ -18,7 +18,7 @@ class CarController extends Controller
             ['Index', false],
         ];
         $title = 'All Car';
-        $cars = Car::latest()->get();
+        $cars = Car::orderBy('car_service', 'ASC')->get();
         return view('admin.car.index', compact('breadcrumbs', 'title', 'cars'));
     }
 

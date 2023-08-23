@@ -84,9 +84,9 @@ class AccOrderLevelController extends Controller
         } else {
             if ($request->length == 2) {
                 $request->validate([
-                    'user_id' => 'required|numeric',
+                    'user_id' => 'required|gte:0',
                 ], [
-                    'user_id.numeric' => 'The Persetujuan Selanjutnya field is required.'
+                    'user_id.gte' => 'The Persetujuan Selanjutnya field is required.'
                 ]);
             }
 

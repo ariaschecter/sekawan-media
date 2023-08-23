@@ -14,42 +14,21 @@
                 <form class="space-y-4" method="POST" action="{{ route('admin.car-history.update', $car_history->id) }}">
                     @csrf
                     @method('PUT')
-                    <div>
-                        <label for="employee_id" class="form-label">Employee</label>
-                        <select name="employee_id" id="employee_id" class="form-control w-full mt-2" disabled>
-                            @foreach ($employees as $employee)
-                                <option value="{{ $employee->id }}" {{ $car_history->employee_id == $employee->id ? 'selected' : '' }} class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">{{ $employee->employee_name }}</option>
-                            @endforeach
-                        </select>
-                        <x-input-error :messages="$errors->get('employee_id')" class="mt-2" />
-                    </div>
-                    <div>
-                        <label for="car_id" class="form-label">Car</label>
-                        <select name="car_id" id="car_id" class="form-control w-full mt-2" disabled>
-                            @foreach ($cars as $car)
-                                <option value="{{ $car->id }}" {{ $car_history->car_id == $car->id ? 'selected' : '' }} class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">{{ $car->car_name }} - {{ $car->car_type }}</option>
-                            @endforeach
-                        </select>
-                        <x-input-error :messages="$errors->get('car_id')" class="mt-2" />
-                    </div>
-                    <div>
-                        <label for="driver_id" class="form-label">Driver</label>
-                        <select name="driver_id" id="driver_id" class="form-control w-full mt-2" disabled>
-                            @foreach ($drivers as $driver)
-                                <option value="{{ $driver->id }}" {{ $car_history->driver_id == $driver->id ? 'selected' : '' }} class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">{{ $driver->driver_name }}</option>
-                            @endforeach
-                        </select>
-                        <x-input-error :messages="$errors->get('driver_id')" class="mt-2" />
+                    <div class="input-area relative">
+                        <label for="order_id" class="form-label">Order</label>
+                        <input type="text" id="order_id" name="order_id" class="form-control" placeholder="Enter Your Note" value="{{ $car_history->order->car->car_name }}" readonly>
+                        <x-input-error :messages="$errors->get('order_id')" class="mt-2" />
                     </div>
 
                     <div>
-                        <label for="history_pinjam" class=" form-label">History Pinjam</label>
+                        <label for="history_pinjam" class=" form-label">Waktu Pinjam</label>
                         <input class="form-control py-2" id="history_pinjam" name="history_pinjam" value="{{ $car_history->history_pinjam }}" type="date" readonly>
                         <x-input-error :messages="$errors->get('history_pinjam')" class="mt-2" />
                     </div>
+
                     <div>
-                        <label for="history_kembali" class=" form-label">History Kembali<span class="text-red-500">*</span></label>
-                        <input class="form-control py-2" id="history_kembali" name="history_kembali" value="{{ $car_history->history_kembali }}" type="date">
+                        <label for="history_kembali" class=" form-label">Waktu Dikembalikan</label>
+                        <input class="form-control py-2" id="history_kembali" name="history_kembali" type="date">
                         <x-input-error :messages="$errors->get('history_kembali')" class="mt-2" />
                     </div>
 
@@ -58,14 +37,7 @@
                         <input type="text" id="history_note" name="history_note" class="form-control" placeholder="Enter Your Note" value="{{ $car_history->history_note }}" readonly>
                         <x-input-error :messages="$errors->get('history_note')" class="mt-2" />
                     </div>
-                    <div>
-                        <label for="history_status" class="form-label">Status<span class="text-red-500">*</span></label>
-                        <select name="history_status" id="history_status" class="form-control w-full mt-2">
-                            <option value="0" {{ $car_history->history_status == '0' ? 'selected' : '' }} class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">Dipinjam</option>
-                            <option value="1" {{ $car_history->history_status == '1' ? 'selected' : '' }} class="py-1 inline-block font-Inter font-normal text-sm text-slate-600">Dikembalikan</option>
-                        </select>
-                        <x-input-error :messages="$errors->get('history_status')" class="mt-2" />
-                    </div>
+
                     <button class="btn inline-flex justify-center btn-dark">Submit</button>
                 </form>
             </div>

@@ -17,7 +17,7 @@ class EmployeeController extends Controller
             ['Index', false],
         ];
         $title = 'All Employee';
-        $employees = Employee::latest()->get();
+        $employees = Employee::orderBy('employee_name', 'ASC')->get();
         return view('admin.employee.index', compact('breadcrumbs', 'title', 'employees'));
     }
 
@@ -41,7 +41,7 @@ class EmployeeController extends Controller
     {
         $validated = $request->validate([
             'employee_name' => 'required',
-            'employee_phone' => 'required|numeric',
+            'employee_phone' => 'required',
         ]);
 
         Employee::create($validated);
@@ -83,7 +83,7 @@ class EmployeeController extends Controller
     {
         $validated = $request->validate([
             'employee_name' => 'required',
-            'employee_phone' => 'required|numeric',
+            'employee_phone' => 'required',
         ]);
 
         $employee->update($validated);

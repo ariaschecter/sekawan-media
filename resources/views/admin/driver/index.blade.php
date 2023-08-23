@@ -46,7 +46,7 @@
                                                 <td class="table-td">{{ $key + 1 }}</td>
                                                 <td class="table-td">{{ $driver->driver_name }}</td>
                                                 <td class="table-td">{{ $driver->driver_phone }}</td>
-                                                <td class="table-td">{{ $driver->driver_avail }}</td>
+                                                <td class="table-td">{{ $driver->driver_avail == 1 ? 'Ada' : 'Tidak Ada' }}</td>
                                                 <td class="table-td ">
                                                     <div class="flex space-x-3 rtl:space-x-reverse">
                                                         <a href="{{ route('admin.driver.show', $driver->id) }}" class="toolTip onTop justify-center action-btn" data-tippy-content="Show" data-tippy-theme="primary">

@@ -13,13 +13,10 @@ return new class extends Migration
     {
         Schema::create('car_histories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('car_id');
-            $table->foreignId('driver_id');
-            $table->foreignId('employee_id');
+            $table->foreignId('order_id');
             $table->date('history_pinjam');
             $table->date('history_kembali')->nullable();
             $table->string('history_note');
-            $table->boolean('history_status')->default(0);
             $table->timestamps();
         });
     }

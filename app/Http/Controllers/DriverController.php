@@ -17,7 +17,7 @@ class DriverController extends Controller
             ['Index', false],
         ];
         $title = 'All Driver';
-        $drivers = Driver::latest()->get();
+        $drivers = Driver::orderBy('driver_name', 'ASC')->get();
         return view('admin.driver.index', compact('breadcrumbs', 'title', 'drivers'));
     }
 
@@ -41,7 +41,7 @@ class DriverController extends Controller
     {
         $validated = $request->validate([
             'driver_name' => 'required',
-            'driver_phone' => 'required|numeric',
+            'driver_phone' => 'required',
         ]);
 
         Driver::create($validated);
@@ -69,10 +69,10 @@ class DriverController extends Controller
     {
         $breadcrumbs = [
             ['Driver', true, route('admin.driver.index')],
-            [$driver->name, true, route('admin.driver.show', $driver->id)],
+            [$driver->driver_name, true, route('admin.driver.show', $driver->id)],
             ['Edit', false],
         ];
-        $title = $driver->name;
+        $title = $driver->driver_name;
         return view('admin.driver.edit', compact('breadcrumbs', 'title', 'driver'));
     }
 
@@ -83,7 +83,8 @@ class DriverController extends Controller
     {
         $validated = $request->validate([
             'driver_name' => 'required',
-            'driver_phone' => 'required|numeric',
+            'driver_phone' => 'required',
+            'driver_avail' => 'required',
         ]);
 
         $driver->update($validated);

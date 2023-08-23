@@ -49,7 +49,7 @@ Route::middleware('role:admin', 'auth')->prefix('admin')->name('admin.')->group(
     Route::resource('driver', DriverController::class);
     Route::resource('employee', EmployeeController::class);
     Route::resource('car', CarController::class);
-    Route::resource('car-history', CarHistoryController::class);
+    Route::resource('car-history', CarHistoryController::class)->except('destory');
     Route::resource('order', OrderController::class)->except(['edit', 'update']);
     Route::resource('order-level', OrderLevelController::class)->except(['create', 'delete']);
 });

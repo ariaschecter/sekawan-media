@@ -53,9 +53,9 @@
                                         @foreach ($histories as $key => $history)
                                             <tr>
                                                 <td class="table-td">{{ $key + 1 }}</td>
-                                                <td class="table-td">{{ $history->car->car_name }}</td>
-                                                <td class="table-td">{{ $history->employee->employee_name }}</td>
-                                                <td class="table-td">{{ $history->driver->driver_name }}</td>
+                                                <td class="table-td">{{ $history->order->car->car_name }}</td>
+                                                <td class="table-td">{{ $history->order->employee->employee_name }}</td>
+                                                <td class="table-td">{{ $history->order->driver->driver_name }}</td>
                                                 <td class="table-td">{{ \Carbon\Carbon::parse($history->history_pinjam)->format('d M Y') }}</td>
                                                 <td class="table-td">{{ $history->history_kembali != null ? \Carbon\Carbon::parse($history->history_kembali)->format('d M Y') : 'Belum Dikembalikan' }}</td>
                                                 <td class="table-td">{{ $history->history_note }}</td>
@@ -64,16 +64,11 @@
                                                         <a href="{{ route('admin.car-history.show', $history->id) }}" class="toolTip onTop justify-center action-btn" data-tippy-content="Show" data-tippy-theme="primary">
                                                             <iconify-icon icon="heroicons:eye"></iconify-icon>
                                                         </a>
-                                                        <a href="{{ route('admin.car-history.edit', $history->id) }}" class="toolTip onTop justify-center action-btn" data-tippy-content="Edit" data-tippy-theme="info">
-                                                            <iconify-icon icon="heroicons:pencil-square"></iconify-icon>
-                                                        </a>
-                                                        <form action="{{ route('admin.car-history.destroy', $history->id) }}" method="POST">
-                                                            @method('DELETE')
-                                                            @csrf
-                                                            <button class="toolTip onTop justify-center action-btn" type="submit" data-tippy-content="Delete" data-tippy-theme="danger">
-                                                                <iconify-icon icon="heroicons:trash"></iconify-icon>
-                                                            </button>
-                                                        </form>
+                                                        @if ($history->history_kembali == null)
+                                                            <a href="{{ route('admin.car-history.edit', $history->id) }}" class="toolTip onTop justify-center action-btn" data-tippy-content="Edit" data-tippy-theme="info">
+                                                                <iconify-icon icon="heroicons:pencil-square"></iconify-icon>
+                                                            </a>
+                                                        @endif
                                                     </div>
                                                 </td>
                                             </tr>
