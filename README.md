@@ -51,3 +51,9 @@
 3. Admin dapat melakukan `export excel` pada menu `Pemesanan > Export Excel` dan memasukkan tanggal mulai dan tanggal akhir
 4. Admin dapat melihat `Log Activity` di menu Log
 
+## Physical Data Model
+![Physical Data Model](optional/physical-data.png)
+
+## Activity Diagram
+![Activity Diagram](optional/activity-diagram.png)
+
